@@ -2,15 +2,17 @@ MIN_VOLUME = 0
 MAX_VOLUME = 2
 MIN_CHANNEL = 0
 MAX_CHANNEL = 3
+MIN_SOURCE = 0
+MAX_SOURCE = 3
 
-
-class Television:
+class Remote:
 
     def __init__(self):
         self.status = False
         self.muted = False
         self.volume = MIN_VOLUME
         self.channel = MIN_CHANNEL
+        self.source = MIN_SOURCE
 
     def power(self):
         if self.status == False:
@@ -32,6 +34,15 @@ class Television:
             else:
                 self.channel = MIN_CHANNEL
 
+        else:
+            pass
+
+    def change_source(self):
+        if self.status == True:
+            if self.source < MAX_SOURCE:
+                self.source += 1
+            else:
+                self.source = MIN_SOURCE
         else:
             pass
 
