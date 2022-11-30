@@ -1,42 +1,14 @@
 
-from remote import Television
+
+from controller_remote import *
+
+
 def main():
-    # Television 1
-    tv_1 = Television()
-    tv_1.power()
-    print(tv_1)             # TV status: Power = True, Channel = 0, Volume = 0
-    tv_1.channel_up()
-    tv_1.channel_up()
-    tv_1.volume_up()
-    print(tv_1)             # TV status: Power = True, Channel = 2, Volume = 1
-    tv_1.channel_up()
-    tv_1.channel_up()
-    tv_1.channel_up()
-    tv_1.volume_down()
-    tv_1.volume_down()
-    print(tv_1)             # TV status: Power = True, Channel = 1, Volume = 0
-    tv_1.power()
-    tv_1.volume_up()
-    tv_1.channel_down()
-    print(tv_1)             # TV status: Power = False, Channel = 1, Volume = 0
-    tv_1.power()
-    tv_1.volume_up()
-    tv_1.volume_up()
-    tv_1.volume_up()
-    tv_1.channel_down()
-    tv_1.channel_down()
-    print(tv_1)             # TV status: Power = True, Channel = 3, Volume = 2
-    # Television 2
-    tv_2 = Television()
-    tv_2.power()
-    tv_2.channel_up()
-    tv_2.volume_up()
-    print(tv_2)             # TV status: Power = True, Channel = 1, Volume = 1
-    # Muting effect
-    tv_1.mute()
-    print(tv_1)             # TV status: Power = True, Channel = 3, Volume = 0
-    tv_1.mute()
-    print(tv_1)             # TV status: Power = True, Channel = 3, Volume = 2
+    app = QApplication([])
+    window = Controller()
+    window.show
+    app.exec_()
+
+
 if __name__ == '__main__':
     main()
-
