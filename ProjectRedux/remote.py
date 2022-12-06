@@ -1,20 +1,18 @@
-from controller_remote import Controller
-
-MIN_VOLUME = 0
-MAX_VOLUME = 2
-MIN_CHANNEL = 0
-MAX_CHANNEL = 3
-MIN_SOURCE = 0
-MAX_SOURCE = 3
 
 class Remote:
+    MIN_VOLUME = 0
+    MAX_VOLUME = 100
+    MIN_CHANNEL = 0
+    MAX_CHANNEL = 10
+    MIN_SOURCE = 0
+    MAX_SOURCE = 3
 
     def __init__(self):
         self.status = False
         self.muted = False
-        self.volume = MIN_VOLUME
-        self.channel = MIN_CHANNEL
-        self.source = MIN_SOURCE
+        self.volume = Remote.MIN_VOLUME
+        self.channel = Remote.MIN_CHANNEL
+        self.source = Remote.MIN_SOURCE
 
     def power(self):
         if self.status == False:
@@ -31,37 +29,37 @@ class Remote:
 
     def channel_up(self):
         if self.status == True:
-            if self.channel < MAX_CHANNEL:
+            if self.channel < Remote.MAX_CHANNEL:
                 self.channel += 1
             else:
-                self.channel = MIN_CHANNEL
+                self.channel = Remote.MIN_CHANNEL
 
         else:
             pass
 
     def change_source(self):
         if self.status == True:
-            if self.source < MAX_SOURCE:
+            if self.source < Remote.MAX_SOURCE:
                 self.source += 1
             else:
-                self.source = MIN_SOURCE
+                self.source = Remote.MIN_SOURCE
         else:
             pass
 
     def channel_down(self):
         if self.status == True:
-            if self.channel > MIN_CHANNEL:
+            if self.channel > Remote.MIN_CHANNEL:
                 self.channel -= 1
 
             else:
-                self.channel = MAX_CHANNEL
+                self.channel = Remote.MAX_CHANNEL
         else:
             pass
 
     def volume_up(self):
         if self.status == True:
 
-            if self.volume < MAX_VOLUME:
+            if self.volume < Remote.MAX_VOLUME:
                 self.volume += 1
 
             else:
@@ -72,7 +70,7 @@ class Remote:
 
     def volume_down(self):
         if self.status == True:
-            if self.volume > MIN_VOLUME:
+            if self.volume > Remote.MIN_VOLUME:
                 self.volume -= 1
 
             else:
@@ -80,10 +78,3 @@ class Remote:
 
         else:
             pass
-
-    def __str__(self):
-        if self.muted == True:
-            return f'TV status: Power - {self.status}, Channel - {self.channel}, Volume - {MIN_VOLUME}.'
-        else:
-            return f'TV status: Power - {self.status}, Channel - {self.channel}, Volume - {self.volume}.'
-

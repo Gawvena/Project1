@@ -1,11 +1,9 @@
-
-
 from controller_remote import *
 
 
 def main():
     app = QApplication([])
-    window = Controller()
+    window = ControllerRemote()
     window.show
     app.exec_()
 
