@@ -1,12 +1,16 @@
+
 from controller_remote import *
 
-
 def main():
-    app = QApplication([])
-    window = ControllerRemote()
-    window.show
-    app.exec_()
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    w = ControllerRemote()
+    w.show()
+    sys.exit(app.exec_())
 
 
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
+
     main()
